@@ -36,20 +36,12 @@ public class Car {
 	 * @param amount	The amount the car will accelerate
 	 */
 	public void accelerate(int amount){
-		int limit = maxSpeed - speed;
-		if(amount >= limit){
-			speed = limit;
-		}else{
-			speed+= amount;
-		}
+		final int limit = maxSpeed - speed;
+		speed+= amount >= limit ? limit : amount;
 	}
 	
 	public void decelerate(int amount) {
-		if (amount > speed) {
-			speed = 0;
-		} else {
-			speed-=amount;
-		}
+		speed-= amount > speed ? speed : amount;
 	}
 	
 	/**
